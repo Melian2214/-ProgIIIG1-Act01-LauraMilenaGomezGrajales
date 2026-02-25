@@ -5,7 +5,7 @@ persona(marge). persona(patty). persona(selma).
 persona(bart). persona(lisa). persona(maggie).
 persona(ling).
 
-hijo(abraham, hebert). hijo(mona, hebert).
+hijo(abraham, herbert). hijo(mona, herbert).
 hijo(abraham, homero). hijo(mona, homero).
 hijo(clancy, marge). hijo(jacquelin, marge).
 hijo(clancy, patty). hijo(jacquelin, patty).
@@ -13,10 +13,10 @@ hijo(clancy, selma). hijo(jacquelin, selma).
 hijo(homero, bart). hijo(marge, bart).
 hijo(homero, lisa). hijo(marge, lisa).
 hijo(homero, maggie). hijo(marge, maggie).
-hijo(homero, ling). hijo(marge, ling).
+hijo(selma, ling).
 
-padre(X, P):- hijo(P, X).
-madre(X, M):- hijo(M, X).
+padre(P, H) :- hijo(P, H).
+madre(M, H) :- hijo(M, H).
 
-abuelo(AP, X):- padre(P,AP), hijo(P,X).
-abuela(AM, X):- madre(M,AM), hijo(M,X).
+abuelo(A, X) :- hijo(A, P), hijo(P, X).
+abuela(A, X) :- hijo(A, P), hijo(P, X).
